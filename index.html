@@ -10,11 +10,10 @@
 </head>
 <style>
     body{
-        overflow: hidden;
         scroll-behavior: smooth;
     }
     canvas.grid{
-
+        
         border: 10px solid black;
         width: 10000px;
         height: 10000px;
@@ -24,13 +23,17 @@
         linear-gradient(to bottom, grey 1px, transparent 1px);
         background-color: #090d11;
     }
+    ::-webkit-scrollbar{
+        width: 0px;
+    }
 </style>
-<body>
+<body onload="window.scrollTo(5000,5000)">
     <canvas class="grid" onmousedown="mdcanvas()" onmouseup="mucanvas()" onmouseleave="mucanvas()">
         
     </canvas>
 </body>
 <script>
+    
         var lastpos = {
             x: 0,
             y: 0
