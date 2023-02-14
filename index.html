@@ -7,29 +7,9 @@
     <link id="favicon" rel="shortcut icon" type="https://cdn.discordapp.com/attachments/1039486014613364799/1074603304497192990/Frame_2.png" href="favicon.png" />
     <!--metadata for the site so it looks nicer and embedswhen sent to someone eg on discord or twitter-->
     <title>havent decided name</title>
-</head>
-<style>
-    body{
-        scroll-behavior: smooth;
-    }
-    canvas.grid{
-        
-        border: 10px solid black;
-        width: 10000px;
-        height: 10000px;
-        background-size: 35px 35px;
-        background-image:
-        linear-gradient(to right, grey 1px, transparent 1px),
-        linear-gradient(to bottom, grey 1px, transparent 1px);
-        background-color: #090d11;
-    }
-    ::-webkit-scrollbar{
-        width: 0px;
-        height: 0px;
-    }
-</style>
+</head> 
 <body onload="window.scrollTo(5000,5000)">
-    <canvas class="grid" onmousedown="mdcanvas()" onmouseup="mucanvas()" onmouseleave="mucanvas()" oncontextmenu="return(false)">
+    <canvas class="grid" id="grid"  onmousedown="mdcanvas()" onmouseup="mucanvas()" onmouseleave="mucanvas()" oncontextmenu="return(false)">
         
     </canvas>
 </body>
@@ -47,8 +27,6 @@
             window.scrollBy(0 - lastpos.x, 0 - lastpos.y);
         }
     });
-
-
     function mdcanvas(){//drag entire window type thing for more control
         var stuffs = [// i do not know why i thought it would work but it does
             ()=>{//left click
@@ -59,7 +37,16 @@
             },
             ()=>{
                 //right click
+                if (true){
+                    const contextmenu = document.createElement('div')
+                    contextmenu.innerHTML = ""
+                    contextmenu.style.width = '400px'
+                    contextmenu.style.height = '250px'
+                    contextmenu.position = 'absoloute'
                 
+                    document.getElementById("grid").appendChild(contextmenu)
+                    
+                }
             }
         ]
         stuffs[event.button]();
@@ -67,5 +54,5 @@
     function mucanvas(){
         mdoc = false;
     };
-    
+
 </script>
