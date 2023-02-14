@@ -25,31 +25,47 @@
     }
     ::-webkit-scrollbar{
         width: 0px;
+        height: 0px;
     }
 </style>
 <body onload="window.scrollTo(5000,5000)">
-    <canvas class="grid" onmousedown="mdcanvas()" onmouseup="mucanvas()" onmouseleave="mucanvas()">
+    <canvas class="grid" onmousedown="mdcanvas()" onmouseup="mucanvas()" onmouseleave="mucanvas()" oncontextmenu="return(false)">
         
     </canvas>
 </body>
 <script>
-    
-        var lastpos = {
-            x: 0,
-            y: 0
-        }
+    var mdoc = false;
+    var lastpos = {
+        x: 0,
+        y: 0
+    };
+    //event listeners
     addEventListener('mousemove', (event) =>{
-        lastpos.x = event.movementX
-        lastpos.y = event.movementY
-        if (mousedownoncanvas){
-            window.scrollBy(0 - lastpos.x, 0 - lastpos.y)
+        lastpos.x = event.movementX;
+        lastpos.y = event.movementY;
+        if (mdoc){
+            window.scrollBy(0 - lastpos.x, 0 - lastpos.y);
         }
-    })
-var mousedownoncanvas = false
+    });
+
+
     function mdcanvas(){//drag entire window type thing for more control
-        mousedownoncanvas = true
-    }
+        var stuffs = [// i do not know why i thought it would work but it does
+            ()=>{//left click
+                mdoc = true
+            },
+            ()=>{//middle mouse click
+
+            },
+            ()=>{
+                //right click
+                
+            }
+        ]
+        stuffs[event.button]();
+    };
     function mucanvas(){
-        mousedownoncanvas = false
-    }
+        mdoc = false;
+    };
+    
 </script>
