@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <meta property="og:title" content="forgot name" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://cdn.discordapp.com/attachments/1039486014613364799/1074603304497192990/Frame_2.png" />
+    <meta name="theme-color" content="#FF0000">
+    <link id="favicon" rel="shortcut icon" type="https://cdn.discordapp.com/attachments/1039486014613364799/1074603304497192990/Frame_2.png" href="favicon.png" />
+    <!--metadata for the site so it looks nicer and embedswhen sent to someone eg on discord or twitter-->
+    <title>havent decided name</title>
+</head>
+<style>
+    body{
+        overflow: hidden;
+        scroll-behavior: smooth;
+    }
+    canvas.grid{
+
+        border: 10px solid black;
+        width: 10000px;
+        height: 10000px;
+        background-size: 35px 35px;
+        background-image:
+        linear-gradient(to right, grey 1px, transparent 1px),
+        linear-gradient(to bottom, grey 1px, transparent 1px);
+        background-color: #090d11;
+    }
+</style>
+<body>
+    <canvas class="grid" onmousedown="mdcanvas()" onmouseup="mucanvas()" onmouseleave="mucanvas()">
+        
+    </canvas>
+</body>
+<script>
+        var lastpos = {
+            x: 0,
+            y: 0
+        }
+    addEventListener('mousemove', (event) =>{
+        lastpos.x = event.movementX
+        lastpos.y = event.movementY
+        if (mousedownoncanvas){
+            window.scrollBy(0 - lastpos.x, 0 - lastpos.y)
+        }
+    })
+var mousedownoncanvas = false
+    function mdcanvas(){//drag entire window type thing for more control
+        mousedownoncanvas = true
+    }
+    function mucanvas(){
+        mousedownoncanvas = false
+    }
+</script>
