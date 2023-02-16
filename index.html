@@ -19,11 +19,12 @@
 
 
 
-<div class="contextmenu" id="cm" oncontextmenu="return(false)">
-    <p>hi</p>
-</div>
 
 <body   onload="window.scrollTo(5000,5000)"   ondrop="drop()"   ondragover="uploadiconandstuff()">
+    <div class="contextmenu" id="cm" oncontextmenu="return(false)">
+        <p>hi</p>
+    </div>
+    
     <canvas class="grid" id="grid" onmousedown="mdcanvas()"    onmouseup="mucanvas()"  onmouseleave="mucanvas()"    oncontextmenu="return(false)">
 
     </canvas>
@@ -40,6 +41,10 @@
         x: 0,
         y: 0
     };
+    var lastscroll = 0
+    var currentscroll = 0
+
+
 
     //contextmenu timeout weight
     var cmenutimeout = 0
@@ -58,6 +63,13 @@
             window.scrollBy(0 - lastpos.x, 0 - lastpos.y);//invert scroll with 0-
         }
     });
+
+
+
+
+
+    //functions
+
     function mdcanvas(){//mouse down on canvas
         var stuffs = [// i do not know why i thought it would work but it does
             ()=>{//left click
